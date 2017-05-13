@@ -6,7 +6,7 @@ public class jumpStateScript : StateMachineBehaviour {
 	GameObject go;
 	GameObject rotationDummy;
 	Rigidbody gorb;
-	public float jumpforce = 1600.0f;
+	public float jumpforce = 1000.0f;
 	private Vector3 jumpDirection;
 	Quaternion targetRotation;
 

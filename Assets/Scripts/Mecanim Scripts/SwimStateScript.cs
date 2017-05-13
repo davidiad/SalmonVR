@@ -5,12 +5,14 @@ using UnityEngine.UI;
 public class SwimStateScript : StateMachineBehaviour {
 
 	private GameObject fish;
-	private float moveSpeed = 0.0f;
+	private GameObject fishParent;
+	private float moveSpeed = 1.1f;
 	//public Slider speedSlider;
 
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		
 		fish = animator.gameObject;
+		fishParent = GameObject.FindGameObjectWithTag ("FishParent");
 		fish.GetComponent<Rigidbody> ().isKinematic = true;
 	}
 		
@@ -31,6 +33,12 @@ public class SwimStateScript : StateMachineBehaviour {
 
 	}
 		*/
+
+	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		fishParent.transform.localPosition += fish.transform.forward * moveSpeed;
+		//fishParent.transform.localPosition += new Vector3 (.05f, 0.05f, 0.05f) * moveSpeed;
+		Debug.Log (fish.transform.forward);
+	}
 	
 
 	public void updateMoveSpeed()

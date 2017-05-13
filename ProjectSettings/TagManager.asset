@@ -8,6 +8,7 @@ TagManager:
   - fishtrig3
   - CamTarget
   - CamParent
+  - FishParent
   layers:
   - Default
   - TransparentFX

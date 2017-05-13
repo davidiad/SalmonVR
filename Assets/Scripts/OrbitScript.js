@@ -20,6 +20,7 @@ private var x = 0.0;
 private var y = 0.0;
 private var distanceVelocity = 0.0;
 private var fish : GameObject;
+private var fishParent : GameObject;
 private var camParent: GameObject;
 
 /*
@@ -44,6 +45,7 @@ GetComponent("GlowEffect").enabled = false;
 */
 function Start () {
 	fish = GameObject.FindGameObjectWithTag("Fishy");
+	fishParent = GameObject.FindGameObjectWithTag("FishParent");
 	camParent = GameObject.FindGameObjectWithTag("CamParent");
     var angles = transform.eulerAngles;
     x = angles.y;
@@ -92,7 +94,8 @@ function Update () {
 		//Vector3 movement = new Vector3();
 //		Vector3 movement = transform.forward * moveSpeed;
 //		camParent.transform.localPosition += movement;
-		camParent.transform.localPosition += transform.forward * moveSpeed;
+		//camParent.transform.localPosition += transform.forward * moveSpeed;
+		camParent.transform.localPosition = fishParent.transform.position;
 
 }
 
