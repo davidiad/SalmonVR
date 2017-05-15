@@ -35,9 +35,7 @@ public class SwimStateScript : StateMachineBehaviour {
 		*/
 
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		fishParent.transform.localPosition += fish.transform.forward * moveSpeed;
-		//fishParent.transform.localPosition += new Vector3 (.05f, 0.05f, 0.05f) * moveSpeed;
-		Debug.Log (fish.transform.forward);
+		fishParent.transform.position += fish.transform.forward * moveSpeed;
 	}
 	
 

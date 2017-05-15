@@ -95,7 +95,7 @@ function Update () {
 //		Vector3 movement = transform.forward * moveSpeed;
 //		camParent.transform.localPosition += movement;
 		//camParent.transform.localPosition += transform.forward * moveSpeed;
-		camParent.transform.localPosition = fishParent.transform.position;
+		gameObject.transform.position = fishParent.transform.position;
 
 }
 
@@ -123,7 +123,12 @@ static function ClampAngle (angle : float, min : float, max : float) {
 	return Mathf.Clamp (angle, min, max);
 }
 
-function LateUpdate () {	
+function LateUpdate () {
+		// gameObject is the Main Camera, which this script is attached to
+		var rotation : Quaternion = gameObject.transform.rotation;
+		fishParent.transform.rotation = rotation;
+		fish.transform.rotation = gameObject.transform.rotation;
+			
 //   camParent.transform.localPosition = fish.transform.position;
 //   fish.transform.localPosition = new Vector3(0,0,0);
  }
